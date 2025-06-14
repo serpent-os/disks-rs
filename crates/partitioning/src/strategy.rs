@@ -30,8 +30,8 @@
 
 use crate::planner::{PlanError, Planner};
 
-use crate::planner::Region;
 use crate::PartitionAttributes;
+use crate::planner::Region;
 
 /// Strategy for allocating partitions
 #[derive(Debug, Clone)]
@@ -240,11 +240,7 @@ impl Strategy {
                 // Other flexible partitions get fair share plus minimum
                 let share = remaining / (remaining_flexible + 1) as u64;
                 let size = min + share;
-                if let Some(max) = max_opt {
-                    size.min(*max)
-                } else {
-                    size
-                }
+                if let Some(max) = max_opt { size.min(*max) } else { size }
             };
 
             match planner.plan_add_partition_with_attributes(
@@ -274,7 +270,7 @@ impl Strategy {
 mod tests {
     use super::*;
     use crate::planner::Planner;
-    use disks::{mock::MockDisk, BlockDevice};
+    use disks::{BlockDevice, mock::MockDisk};
     use test_log::test;
 
     const MB: u64 = 1024 * 1024;

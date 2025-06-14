@@ -1,13 +1,10 @@
 [workspace]
 resolver = "2"
+members = ["crates/*"]
 
-default-members = [
-    "crates/*",
-]
-
-members = [
-    "crates/*",
-]
+[workspace.package]
+edition = "2024"
+rust-version = "1.85"
 
 [workspace.dependencies]
 gpt = "4.0.0"

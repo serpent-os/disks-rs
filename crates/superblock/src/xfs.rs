@@ -172,7 +172,7 @@ impl Xfs {
 
     /// Returns the volume label as a UTF-8 string, trimming any null termination
     pub fn label(&self) -> Result<String, UnicodeError> {
-        Ok(str::from_utf8(&self.fname)?.trim_end_matches('\0').to_owned())
+        Ok(std::str::from_utf8(&self.fname)?.trim_end_matches('\0').to_owned())
     }
 }
 

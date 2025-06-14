@@ -90,7 +90,7 @@ impl Filesystem {
                         at: entry.span(),
                         name: entry.name().value().into(),
                     }
-                    .into())
+                    .into());
                 }
             }
         }

@@ -10,7 +10,7 @@
 
 use std::path::{Path, PathBuf};
 
-use crate::{sysfs, BasicDisk, DiskInit, DEVFS_DIR, SYSFS_DIR};
+use crate::{BasicDisk, DEVFS_DIR, DiskInit, SYSFS_DIR, sysfs};
 
 /// Represents a loop device.
 #[derive(Debug)]

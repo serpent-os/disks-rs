@@ -5,7 +5,7 @@
 use std::path::{Path, PathBuf};
 
 use disks::BlockDevice;
-use partitioning::{blkpg, loopback, sparsefile, writer::DiskWriter, Formatter};
+use partitioning::{Formatter, blkpg, loopback, sparsefile, writer::DiskWriter};
 use provisioning::{Parser, Provisioner, StrategyDefinition};
 
 /// Loads provisioning strategies from a configuration file
@@ -74,11 +74,11 @@ fn apply_partitioning(whence: &Path) -> Result<(), Box<dyn std::error::Error>> {
     for operation in formatters.iter_mut() {
         match operation.output() {
             Ok(output) => {
-                let stdout = str::from_utf8(&output.stdout).expect("Invalid UTF-8");
+                let stdout = std::str::from_utf8(&output.stdout).expect("Invalid UTF-8");
                 if output.status.success() {
                     eprintln!("Format success: {stdout}");
                 } else {
-                    let stderr = str::from_utf8(&output.stderr).expect("Invalid UTF-8");
+                    let stderr = std::str::from_utf8(&output.stderr).expect("Invalid UTF-8");
                     eprintln!("Format error: {stderr}");
                 }
                 eprintln!("Format output: {stdout}");

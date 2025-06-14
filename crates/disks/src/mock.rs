@@ -9,7 +9,7 @@
 
 use std::{ops::Deref, path::PathBuf};
 
-use crate::{partition::Partition, BasicDisk};
+use crate::{BasicDisk, partition::Partition};
 
 /// Represents a mock disk device.
 ///

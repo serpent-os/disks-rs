@@ -3,11 +3,11 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-use partitioning::{gpt::partition_types, GptAttributes, PartitionAttributes, TableAttributes};
+use partitioning::{GptAttributes, PartitionAttributes, TableAttributes, gpt::partition_types};
 
 use crate::{
-    get_kdl_entry, get_kdl_property, get_property_str, Constraints, Context, Filesystem, FromKdlProperty, FromKdlType,
-    PartitionRole, PartitionTypeGuid, PartitionTypeKDL,
+    Constraints, Context, Filesystem, FromKdlProperty, FromKdlType, PartitionRole, PartitionTypeGuid, PartitionTypeKDL,
+    get_kdl_entry, get_kdl_property, get_property_str,
 };
 
 /// Command to create a partition
@@ -77,7 +77,7 @@ pub(crate) fn parse(context: Context<'_>) -> Result<super::Command, crate::Error
                     at: child.span(),
                     name: child.name().value().into(),
                 }
-                .into())
+                .into());
             }
         }
     }

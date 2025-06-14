@@ -9,13 +9,12 @@ use std::{
 };
 
 use disks::BlockDevice;
-use gpt::{mbr, partition_types, GptConfig};
+use gpt::{GptConfig, mbr, partition_types};
 use thiserror::Error;
 
 use crate::{
-    blkpg,
+    GptAttributes, blkpg,
     planner::{Change, Planner},
-    GptAttributes,
 };
 const SECTOR_SIZE: u64 = 512;
 

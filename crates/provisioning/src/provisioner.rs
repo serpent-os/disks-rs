@@ -8,12 +8,12 @@ use std::{collections::HashMap, path::PathBuf};
 use disks::BlockDevice;
 use log::{debug, trace, warn};
 use partitioning::{
-    planner::{Planner, PARTITION_ALIGNMENT},
+    planner::{PARTITION_ALIGNMENT, Planner},
     strategy::{AllocationStrategy, PartitionRequest, SizeRequirement, Strategy},
 };
 use types::{Filesystem, PartitionRole};
 
-use crate::{commands::Command, Constraints, StrategyDefinition};
+use crate::{Constraints, StrategyDefinition, commands::Command};
 
 /// Provisioner
 pub struct Provisioner<'a> {
@@ -85,7 +85,7 @@ impl<'a> Provisioner<'a> {
     }
 
     /// Attempt all strategies on the pool of devices
-    pub fn plan(&self) -> Vec<Plan> {
+    pub fn plan(&self) -> Vec<Plan<'_>> {
         trace!("Planning device provisioning");
         let mut plans = Vec::new();
         for strategy in self.configs.values() {

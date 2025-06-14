@@ -9,7 +9,7 @@ pub use gpt::partition_types::Type as GptPartitionType;
 pub use uuid::Uuid;
 
 #[cfg(feature = "kdl")]
-use crate::{get_kdl_entry, kdl_value_to_string, UnsupportedValue};
+use crate::{UnsupportedValue, get_kdl_entry, kdl_value_to_string};
 
 #[cfg(feature = "kdl")]
 use super::FromKdlType;

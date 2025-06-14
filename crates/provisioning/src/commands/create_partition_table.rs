@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-use crate::{get_kdl_property, FromKdlProperty, PartitionTableType};
-use crate::{get_property_str, Context};
+use crate::{Context, get_property_str};
+use crate::{FromKdlProperty, PartitionTableType, get_kdl_property};
 
 /// Command to create a partition table
 #[derive(Debug)]

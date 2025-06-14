@@ -12,7 +12,7 @@
 //! - Track and undo changes
 //! - Validate that changes won't conflict with existing partitions
 
-use disks::{align_down, align_up, format_position, format_size, is_aligned, BlockDevice};
+use disks::{BlockDevice, align_down, align_up, format_position, format_size, is_aligned};
 use log::{debug, warn};
 use std::collections::VecDeque;
 use thiserror::Error;

@@ -5,7 +5,7 @@
 use std::fmt;
 use std::path::{Path, PathBuf};
 
-use crate::{sysfs, DEVFS_DIR, SYSFS_DIR};
+use crate::{DEVFS_DIR, SYSFS_DIR, sysfs};
 
 /// Represents a partition on a disk device
 /// - Size in sectors

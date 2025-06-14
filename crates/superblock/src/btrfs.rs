@@ -123,6 +123,6 @@ impl Btrfs {
 
     /// Return the volume label as a string
     pub fn label(&self) -> Result<String, UnicodeError> {
-        Ok(str::from_utf8(&self.label)?.trim_end_matches('\0').to_owned())
+        Ok(std::str::from_utf8(&self.label)?.trim_end_matches('\0').to_owned())
     }
 }

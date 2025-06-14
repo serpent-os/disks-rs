@@ -1,8 +1,9 @@
 [package]
 name = "partitioning"
 version = "0.1.0"
-edition = "2021"
 description = "A library for working directly with partitions"
+edition.workspace = true
+rust-version.workspace = true
 
 [dependencies]
 disks = { path = "../disks" }
